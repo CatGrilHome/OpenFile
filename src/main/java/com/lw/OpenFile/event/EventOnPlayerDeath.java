@@ -1,9 +1,8 @@
-package com.lw.OpenDeathSenrenBanka.event;
+package com.lw.OpenFile.event;
 
-import com.OpenDeathSenrenBanka.open_death_senrenbanka.Tags;
-import com.lw.OpenDeathSenrenBanka.OpenDeathSenrenBankaConfig;
+import com.OpenFile.open_file.Tags;
+import com.lw.OpenFile.OpenFileConfig;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.text.TextComponentString;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -12,18 +11,18 @@ import java.io.File;
 import java.io.IOException;
 
 @Mod.EventBusSubscriber(modid = Tags.MOD_ID)
-public class OpenSenrenBanka {
+public class EventOnPlayerDeath {
 
     @SubscribeEvent
     public void onPlayerDeath(LivingDeathEvent event) {
         if (event.getEntity() instanceof EntityPlayer) {
 
-            String pathSenrenBanka = OpenDeathSenrenBankaConfig.pathSenrenBanka;
-            File file = new File(pathSenrenBanka);
+            String OpenFile = OpenFileConfig.pathOpenFile;
+            File file = new File(OpenFile);
 
             if (file.exists()) {
                 try {
-                    Process proc = new ProcessBuilder(pathSenrenBanka).start();
+                    Process proc = new ProcessBuilder(OpenFile).start();
                 } catch (IOException e) {
                     e.setStackTrace(null);
                 }
