@@ -1,31 +1,23 @@
 package com.lw.OpenFile.util;
 
-import appeng.api.features.IInscriberRecipe;
 import appeng.api.networking.crafting.ICraftingPatternDetails;
 import appeng.api.storage.data.IAEItemStack;
-import appeng.core.Api;
 import appeng.items.misc.ItemEncodedPattern;
+import com.lw.OpenFile.integration.jei.OpenFileJeiPlugin;
+import mezz.jei.api.IJeiRuntime;
+import mezz.jei.api.IRecipeRegistry;
+import mezz.jei.api.recipe.IFocus;
+import mezz.jei.api.recipe.IRecipeCategory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.world.World;
 
-import java.util.Collection;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
-/**
- * Analyzes an encoded pattern's recipe to determine which machine
- * is intended to execute it.
- */
 public final class PatternMachineDetector {
 
     private PatternMachineDetector() {}
 
-    /**
-     * Determine the target machine name for a pattern.
-     *
-     * @param patternStack the encoded pattern ItemStack
-     * @param world        the current world (needed for recipe lookup)
-     * @return human-readable machine name, or null if undetermined
-     */
     public static String detectMachine(ItemStack patternStack, World world) {
         if (patternStack.isEmpty()
                 || !(patternStack.getItem() instanceof ItemEncodedPattern)) {
@@ -38,90 +30,49 @@ public final class PatternMachineDetector {
             return null;
         }
 
-        // Crafting patterns always go to Molecular Assembler
         if (details.isCraftable()) {
             return "ME分子装配室";
         }
 
-        // Processing pattern — check known machine recipes
-        IAEItemStack[] inputs = details.getInputs();
         IAEItemStack[] outputs = details.getOutputs();
-
-        if (inputs == null || outputs == null || inputs.length == 0 || outputs.length == 0) {
-            return "处理机器";
+        if (outputs == null || outputs.length == 0) {
+            return null;
         }
 
-        // Check furnace recipes
-        if (matchesFurnace(inputs, outputs)) {
-            return "熔炉";
-        }
-
-        // Check AE2 inscriber recipes
-        if (matchesInscriber(inputs, outputs)) {
-            return "压印器";
-        }
-
-        return "Processing Machine";
+        return resolveFromJei(outputs);
     }
 
-    /** Check if inputs/outputs match a furnace smelting recipe. */
-    private static boolean matchesFurnace(IAEItemStack[] inputs, IAEItemStack[] outputs) {
-        FurnaceRecipes furnace = FurnaceRecipes.instance();
-        for (IAEItemStack input : inputs) {
-            if (input == null || input.getStackSize() <= 0) continue;
-            ItemStack smeltResult = furnace.getSmeltingResult(input.createItemStack());
-            if (!smeltResult.isEmpty()) {
-                for (IAEItemStack output : outputs) {
-                    if (output != null && output.createItemStack().isItemEqual(smeltResult)) {
-                        return true;
+    private static String resolveFromJei(IAEItemStack[] outputs) {
+        try {
+            IJeiRuntime runtime = OpenFileJeiPlugin.getRuntime();
+            if (runtime == null) {
+                return null;
+            }
+
+            IRecipeRegistry registry = runtime.getRecipeRegistry();
+            Set<String> titles = new LinkedHashSet<>();
+
+            for (IAEItemStack output : outputs) {
+                if (output == null || output.getStackSize() <= 0) {
+                    continue;
+                }
+                ItemStack outputStack = output.createItemStack();
+                if (outputStack.isEmpty()) {
+                    continue;
+                }
+
+                IFocus<ItemStack> focus = registry.createFocus(IFocus.Mode.OUTPUT, outputStack);
+                for (IRecipeCategory<?> category : registry.getRecipeCategories(focus)) {
+                    String title = category.getTitle();
+                    if (title != null && !title.trim().isEmpty()) {
+                        titles.add(title);
                     }
                 }
             }
+
+            return titles.isEmpty() ? null : String.join(", ", titles);
+        } catch (Throwable ignored) {
+            return null;
         }
-        return false;
-    }
-
-    /** Check if inputs/outputs match an AE2 inscriber recipe. */
-    private static boolean matchesInscriber(IAEItemStack[] inputs, IAEItemStack[] outputs) {
-        try {
-            Collection<IInscriberRecipe> recipes =
-                    Api.INSTANCE.registries().inscriber().getRecipes();
-            for (IInscriberRecipe recipe : recipes) {
-                if (matchesInscriberRecipe(recipe, inputs, outputs)) {
-                    return true;
-                }
-            }
-        } catch (Exception ignored) {
-            // Inscriber registry unavailable
-        }
-        return false;
-    }
-
-    private static boolean matchesInscriberRecipe(
-            IInscriberRecipe recipe, IAEItemStack[] inputs, IAEItemStack[] outputs) {
-        ItemStack recipeOutput = recipe.getOutput();
-        if (recipeOutput.isEmpty()) return false;
-
-        // Check if any pattern output matches the recipe output
-        boolean outputMatches = false;
-        for (IAEItemStack output : outputs) {
-            if (output != null && output.createItemStack().isItemEqual(recipeOutput)) {
-                outputMatches = true;
-                break;
-            }
-        }
-        if (!outputMatches) return false;
-
-        // Check if at least one pattern input is an inscriber input
-        for (ItemStack recipeInput : recipe.getInputs()) {
-            if (recipeInput.isEmpty()) continue;
-            for (IAEItemStack input : inputs) {
-                if (input != null && input.createItemStack().isItemEqual(recipeInput)) {
-                    return true;
-                }
-            }
-        }
-
-        return false;
     }
 }

@@ -1,6 +1,8 @@
 package com.lw.OpenFile.mixin.ae2;
 
+import appeng.api.networking.crafting.ICraftingPatternDetails;
 import appeng.items.misc.ItemEncodedPattern;
+
 import com.lw.OpenFile.util.PatternMachineDetector;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemStack;
@@ -25,7 +27,13 @@ public abstract class MixinItemEncodedPattern {
                                     CallbackInfo ci) {
         String targetMachine = PatternMachineDetector.detectMachine(stack, world);
         if (targetMachine != null && !targetMachine.isEmpty()) {
-            tooltip.add(1, "§7机器：" + targetMachine);
+            tooltip.add(Math.min(1, tooltip.size()), "§7机器：" + targetMachine);
+        }
+
+        ItemEncodedPattern patternItem = (ItemEncodedPattern) stack.getItem();
+        ICraftingPatternDetails craftDetails = patternItem.getPatternForItem(stack, world);
+        if (craftDetails != null) {
+            tooltip.add(Math.min(2, tooltip.size()), "§7配方类型：" + (craftDetails.isCraftable() ? "合成样板" : "处理样板"));
         }
     }
 

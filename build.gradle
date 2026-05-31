@@ -125,6 +125,10 @@ dependencies {
             transitive = false // We only care about the 1 annotation class
         }
     }
+
+    implementation 'mezz:jei:4.31.2'
+    implementation rfg.deobf("curse.maven:ae2-extended-life-570458:6302098")
+
     if (propertyBool('use_asset_mover')) {
         implementation "com.cleanroommc:assetmover:${propertyString('asset_mover_version')}"
     }

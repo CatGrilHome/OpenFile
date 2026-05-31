@@ -13,7 +13,6 @@ public final class AEPatternInfo {
     private static final String TAG_ROOT = "OpenFile";
     private static final String TAG_ENCODED_AT = "EncodedAt";
     private static final String TAG_PATTERN_TYPE = "PatternType";
-    private static final String TAG_TARGET_MACHINE = "TargetMachine";
 
     private AEPatternInfo() {}
 
@@ -33,27 +32,6 @@ public final class AEPatternInfo {
     /** Write the pattern type (Crafting Pattern / Processing Pattern). */
     public static void setPatternType(ItemStack stack, String type) {
         getOrCreateSubTag(stack).setString(TAG_PATTERN_TYPE, type);
-    }
-
-    /** Read the pattern type. */
-    public static String getPatternType(ItemStack stack) {
-        NBTTagCompound tag = stack.getTagCompound();
-        if (tag == null || !tag.hasKey(TAG_ROOT)) return null;
-        NBTTagCompound root = tag.getCompoundTag(TAG_ROOT);
-        return root.hasKey(TAG_PATTERN_TYPE) ? root.getString(TAG_PATTERN_TYPE) : null;
-    }
-
-    /** Write the target machine name (what machine uses this pattern). */
-    public static void setTargetMachine(ItemStack stack, String machine) {
-        getOrCreateSubTag(stack).setString(TAG_TARGET_MACHINE, machine);
-    }
-
-    /** Read the target machine name. */
-    public static String getTargetMachine(ItemStack stack) {
-        NBTTagCompound tag = stack.getTagCompound();
-        if (tag == null || !tag.hasKey(TAG_ROOT)) return null;
-        NBTTagCompound root = tag.getCompoundTag(TAG_ROOT);
-        return root.hasKey(TAG_TARGET_MACHINE) ? root.getString(TAG_TARGET_MACHINE) : null;
     }
 
     /** Get or create the "OpenFile" sub-compound in the item's NBT. */
