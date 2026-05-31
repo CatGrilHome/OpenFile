@@ -3,7 +3,6 @@ package com.lw.OpenFile;
 import com.OpenFile.open_file.Tags;
 import com.lw.OpenFile.event.EventOnPlayerDeath;
 import com.lw.OpenFile.event.EventOnPlayerRespawn;
-import com.lw.OpenFile.network.PacketHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -20,7 +19,6 @@ public class OpenFile implements ILateMixinLoader {
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        PacketHandler.init();
         MinecraftForge.EVENT_BUS.register(new EventOnPlayerDeath());
         MinecraftForge.EVENT_BUS.register(new EventOnPlayerRespawn());
     }
