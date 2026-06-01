@@ -1,0 +1,329 @@
+[22:54:36] [main/INFO] [GradleStart]: userProperties: {}
+[22:54:36] [main/INFO] [GradleStart]: assetsDir: D:\Java in send\gradle\repository\caches\retro_futura_gradle\assets
+[22:54:36] [main/INFO] [GradleStart]: assetIndex: 1.12.2
+[22:54:36] [main/INFO] [GradleStart]: version: FML_DEV
+[22:54:36] [main/INFO] [GradleStart]: username: Developer
+[22:54:36] [main/INFO] [GradleStart]: Extra: [--gameDir, D:\github\mod\OpenFile\run, --uuid, 31c4910d-9b69-4725-8969-9ed53ac8a7dc]
+[22:54:36] [main/INFO] [GradleStart]: Found and added coremod: com.cleanroommc.osxnarratorblocker.OSXNarratorBlocker
+[22:54:36] [main/INFO] [GradleStart]: Found and added coremod: com.cleanroommc.stripforgereq.StripLatestForgeRequirements
+[22:54:36] [main/INFO] [GradleStart]: Found and added coremod: zone.rong.mixinbooter.MixinBooterPlugin
+[22:54:36] [main/INFO] [GradleStart]: Found and added cascading tweaker: org.spongepowered.asm.launch.MixinTweaker
+[22:54:36] [main/INFO] [GradleStart]: Found and added coremod: appeng.core.AE2ELCore
+[22:54:36] [main/INFO] [GradleStart]: Running with arguments: [--userProperties, {}, --assetsDir, D:\Java in send\gradle\repository\caches\retro_futura_gradle\assets, --assetIndex, 1.12.2, --accessToken{REDACTED}, --version, FML_DEV, --username, Developer, --tweakClass, net.minecraftforge.fml.common.launcher.FMLTweaker, --gameDir, D:\github\mod\OpenFile\run, --uuid, 31c4910d-9b69-4725-8969-9ed53ac8a7dc, --tweakClass, org.spongepowered.asm.launch.MixinTweaker, --tweakClass, net.minecraftforge.gradle.tweakers.CoremodTweaker]
+[22:54:36] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLTweaker
+[22:54:37] [main/INFO] [LaunchWrapper]: Using primary tweak class name net.minecraftforge.fml.common.launcher.FMLTweaker
+[22:54:37] [main/INFO] [LaunchWrapper]: Loading tweak class name org.spongepowered.asm.launch.MixinTweaker
+[22:54:37] [main/INFO] [mixin]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=file:/D:/Java%20in%20send/gradle/repository/caches/modules-2/files-2.1/zone.rong/mixinbooter/10.2/69f649f03f1b8706ec96945ed2722c653da07c33/mixinbooter-10.2.jar Service=LaunchWrapper Env=CLIENT
+[22:54:37] [main/INFO] [mixin]: Attempting to load Hot-Swap agent
+[22:54:37] [main/INFO] [mixin]: Attempting to load Fernflower decompiler (Threaded mode)
+[22:54:37] [main/INFO] [mixin]: Fernflower could not be loaded, exported classes will not be decompiled. NoClassDefFoundError: org/jetbrains/java/decompiler/main/extern/IResultSaver
+[22:54:37] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.gradle.tweakers.CoremodTweaker
+[22:54:37] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLTweaker
+[22:54:37] [main/INFO] [FML]: Forge Mod Loader version 14.23.5.2847 for Minecraft 1.12.2 loading
+[22:54:37] [main/INFO] [FML]: Java is OpenJDK 64-Bit Server VM, version 1.8.0_492, running on Windows 11:amd64:10.0, installed at D:\Java in send\gradle\repository\jdks\azul_systems__inc_-8-amd64-windows.2\jre
+[22:54:37] [main/ERROR] [FML]: Apache Maven library folder was not in the format expected. Using default libraries directory.
+[22:54:37] [main/ERROR] [FML]: Full: D:\Java in send\gradle\repository\caches\modules-2\files-2.1\org.apache.maven\maven-artifact\3.5.3\7dc72b6d6d8a6dced3d294ed54c2cc3515ade9f4\maven-artifact-3.5.3.jar
+[22:54:37] [main/ERROR] [FML]: Trimmed: d:/java in send/gradle/repository/caches/modules-2/files-2.1/org.apache.maven/maven-artifact/3.5.3/
+[22:54:37] [main/INFO] [FML]: Managed to load a deobfuscated Minecraft name- we are in a deobfuscated environment. Skipping runtime deobfuscation
+[22:54:37] [main/INFO] [FML]: Detected deobfuscated environment, loading log configs for colored console logs.
+[22:54:37] [main/INFO] [FML]: Ignoring missing certificate for coremod FMLCorePlugin (net.minecraftforge.fml.relauncher.FMLCorePlugin), we are in deobf and it's a forge core plugin
+[22:54:37] [main/INFO] [FML]: Ignoring missing certificate for coremod FMLForgePlugin (net.minecraftforge.classloading.FMLForgePlugin), we are in deobf and it's a forge core plugin
+[22:54:37] [main/INFO] [FML]: Found a command line coremod : com.cleanroommc.stripforgereq.StripLatestForgeRequirements
+[22:54:37] [main/WARN] [FML]: The coremod com.cleanroommc.stripforgereq.StripLatestForgeRequirements does not have a MCVersion annotation, it may cause issues with this version of Minecraft
+[22:54:37] [main/INFO] [FML]: Ignoring missing certificate for coremod StripLatestForgeRequirements (com.cleanroommc.stripforgereq.StripLatestForgeRequirements), as this is probably a dev workspace
+[22:54:37] [main/INFO] [FML]: Found a command line coremod : com.cleanroommc.osxnarratorblocker.OSXNarratorBlocker
+[22:54:37] [main/WARN] [FML]: The coremod com.cleanroommc.osxnarratorblocker.OSXNarratorBlocker does not have a MCVersion annotation, it may cause issues with this version of Minecraft
+[22:54:37] [main/INFO] [FML]: Ignoring missing certificate for coremod OSXNarratorBlocker (com.cleanroommc.osxnarratorblocker.OSXNarratorBlocker), as this is probably a dev workspace
+[22:54:37] [main/INFO] [FML]: Found a command line coremod : appeng.core.AE2ELCore
+[22:54:37] [main/INFO] [FML]: Ignoring missing certificate for coremod AE2ELCore (appeng.core.AE2ELCore), as this is probably a dev workspace
+[22:54:37] [main/INFO] [FML]: Found a command line coremod : zone.rong.mixinbooter.MixinBooterPlugin
+[22:54:37] [main/WARN] [FML]: The coremod zone.rong.mixinbooter.MixinBooterPlugin does not have a MCVersion annotation, it may cause issues with this version of Minecraft
+[22:54:37] [main/INFO] [FML]: Ignoring missing certificate for coremod MixinBooter (zone.rong.mixinbooter.MixinBooterPlugin), as this is probably a dev workspace
+[22:54:37] [main/INFO] [MixinBooter]: Initializing Mixins...
+[22:54:37] [main/INFO] [mixin]: Compatibility level set to JAVA_8
+[22:54:37] [main/INFO] [MixinBooter]: Initializing MixinExtras...
+[22:54:37] [main/INFO] [MixinBooter]: Gathering present mods...
+[22:54:37] [main/INFO] [MixinBooter]: Finished gathering 4 mods...
+[22:54:37] [main/INFO] [FML]: Searching D:\github\mod\OpenFile\run\mods for mods
+[22:54:37] [main/INFO] [LaunchWrapper]: Calling tweak class org.spongepowered.asm.launch.MixinTweaker
+[22:54:37] [main/INFO] [mixin]: Initialised Mixin FML Remapper Adapter with net.minecraftforge.fml.common.asm.transformers.deobf.FMLDeobfuscatingRemapper@56276db8
+[22:54:37] [main/INFO] [mixin]: Initialised Legacy FML Dev Remapper
+[22:54:37] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.gradle.tweakers.CoremodTweaker
+[22:54:37] [main/INFO] [GradleStart]: Injecting location in coremod net.minecraftforge.fml.relauncher.FMLCorePlugin
+[22:54:37] [main/INFO] [GradleStart]: Injecting location in coremod net.minecraftforge.classloading.FMLForgePlugin
+[22:54:37] [main/INFO] [GradleStart]: Injecting location in coremod com.cleanroommc.stripforgereq.StripLatestForgeRequirements
+[22:54:37] [main/INFO] [GradleStart]: Injecting location in coremod com.cleanroommc.osxnarratorblocker.OSXNarratorBlocker
+[22:54:37] [main/INFO] [GradleStart]: Injecting location in coremod appeng.core.AE2ELCore
+[22:54:37] [main/INFO] [GradleStart]: Injecting location in coremod zone.rong.mixinbooter.MixinBooterPlugin
+[22:54:37] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
+[22:54:37] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLDeobfTweaker
+[22:54:37] [main/INFO] [LaunchWrapper]: Loading tweak class name org.spongepowered.asm.mixin.EnvironmentStateTweaker
+[22:54:37] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.gradle.tweakers.AccessTransformerTweaker
+[22:54:37] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
+[22:54:37] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
+[22:54:37] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.relauncher.CoreModManager$FMLPluginWrapper
+[22:54:37] [main/INFO] [MixinBooter]: Loading early loader [com.cleanroommc.stripforgereq.StripLatestForgeRequirements] for its mixins.
+[22:54:37] [main/INFO] [MixinBooter]: Adding [mixins.striplatestforgerequirements.json] mixin configuration.
+[22:54:37] [main/INFO] [MixinBooter]: Loading early loader [com.cleanroommc.osxnarratorblocker.OSXNarratorBlocker] for its mixins.
+[22:54:37] [main/INFO] [MixinBooter]: Adding [mixins.osxnarratorblocker.json] mixin configuration.
+[22:54:37] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.relauncher.CoreModManager$FMLPluginWrapper
+[22:54:38] [main/ERROR] [FML]: FML appears to be missing any signature data. This is not a good thing
+[22:54:38] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.relauncher.CoreModManager$FMLPluginWrapper
+[22:54:38] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.relauncher.CoreModManager$FMLPluginWrapper
+[22:54:38] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.relauncher.CoreModManager$FMLPluginWrapper
+[22:54:38] [main/INFO] [LaunchWrapper]: Calling tweak class org.spongepowered.asm.mixin.EnvironmentStateTweaker
+[22:54:38] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLDeobfTweaker
+[22:54:38] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.relauncher.CoreModManager$FMLPluginWrapper
+[22:54:38] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.gradle.tweakers.AccessTransformerTweaker
+[22:54:38] [main/INFO] [GradleStart]: Remapping AccessTransformer rules...
+[22:54:38] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.TerminalTweaker
+[22:54:38] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.TerminalTweaker
+[22:54:38] [main/INFO] [LaunchWrapper]: Launching wrapped minecraft {net.minecraft.client.main.Main}
+[22:54:38] [Client thread/INFO] [net.minecraft.client.Minecraft]: Setting user: Developer
+[22:54:38] [Client thread/INFO] [STDOUT]: [appeng.core.transformer.ItemStackPatch:patchCountGetSet:53]: Patched ItemStack Count getter!
+[22:54:38] [Client thread/INFO] [STDOUT]: [appeng.core.transformer.ItemStackPatch:patchCountGetSet:81]: Patched ItemStack Count setter!
+[22:54:40] [Client thread/WARN] [net.minecraft.client.settings.GameSettings]: Skipping bad option: lastServer:
+[22:54:40] [Client thread/INFO] [net.minecraft.client.Minecraft]: LWJGL Version: 2.9.4
+[22:54:40] [Client thread/INFO] [MixinExtras|Service]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.0-beta.4).
+[22:54:40] [Client thread/INFO] [FML]: -- System Details --
+Details:
+	Minecraft Version: 1.12.2
+	Operating System: Windows 11 (amd64) version 10.0
+	Java Version: 1.8.0_492, Azul Systems, Inc.
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode), Azul Systems, Inc.
+	Memory: 870236248 bytes (829 MB) / 1297612800 bytes (1237 MB) up to 5726797824 bytes (5461 MB)
+	JVM Flags: 2 total; -Xms1G -Xmx6G
+	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0
+	FML: 
+	Loaded coremods (and transformers): 
+MixinBooter (mixinbooter-10.2.jar)
+  
+StripLatestForgeRequirements (strip-latest-forge-requirements-1.0-dev.jar)
+  
+OSXNarratorBlocker (osxnarratorblocker-1.0-dev.jar)
+  
+AE2ELCore (ae2-extended-life-570458-6302098-deobf.jar)
+  appeng.core.transformer.AE2ELTransformer
+	GL info: ' Vendor: 'NVIDIA Corporation' Version: '4.6.0 NVIDIA 591.86' Renderer: 'NVIDIA GeForce RTX 4050 Laptop GPU/PCIe/SSE2'
+[22:54:40] [Client thread/INFO] [FML]: MinecraftForge v14.23.5.2847 Initialized
+[22:54:40] [Client thread/INFO] [FML]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[22:54:40] [Client thread/INFO] [FML]: Invalid recipe found with multiple oredict ingredients in the same ingredient...
+[22:54:41] [Client thread/INFO] [FML]: Replaced 1227 ore ingredients
+[22:54:41] [Client thread/INFO] [MixinBooter]: Initializing MixinBooter's Mod Container.
+[22:54:41] [Client thread/INFO] [FML]: Searching D:\github\mod\OpenFile\run\mods for mods
+[22:54:42] [Client thread/INFO] [FML]: Forge Mod Loader has identified 11 mods to load
+[22:54:42] [Client thread/INFO] [MixinBooter]: Loading late loader [com.lw.OpenFile.OpenFile] for its mixins.
+[22:54:42] [Client thread/INFO] [MixinBooter]: Adding [mixins.open_file.json] mixin configuration.
+[22:54:42] [Client thread/INFO] [FML]: Attempting connection with missing mods [minecraft, mcp, mixinbooter, FML, forge, open_file, jei, appliedenergistics2, ctgui, crafttweaker, crafttweakerjei] at CLIENT
+[22:54:42] [Client thread/INFO] [FML]: Attempting connection with missing mods [minecraft, mcp, mixinbooter, FML, forge, open_file, jei, appliedenergistics2, ctgui, crafttweaker, crafttweakerjei] at SERVER
+[22:54:42] [Client thread/INFO] [STDOUT]: [appeng.core.transformer.AE2ELTransformer:spliceClasses:140]: Spliced in METHOD: net.minecraft.network.PacketBuffer.readItemStack
+[22:54:42] [Client thread/INFO] [STDOUT]: [appeng.core.transformer.AE2ELTransformer:spliceClasses:140]: Spliced in METHOD: net.minecraft.network.PacketBuffer.writeItemStack
+[22:54:42] [Client thread/ERROR] [FML]: The mod appliedenergistics2 is expecting signature dfa4d3ac143316c6f32aa1a1beda1e34d42132e5 for source ae2-extended-life-570458-6302098-deobf.jar, however there is no signature matching that description
+[22:54:42] [Client thread/INFO] [net.minecraft.client.resources.SimpleReloadableResourceManager]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:OpenFile, FMLFileResourcePack:Had Enough Items, FMLFileResourcePack:AE2 Unofficial Extended Life, FMLFileResourcePack:CT-GUI, FMLFileResourcePack:CraftTweaker2, FMLFileResourcePack:CraftTweaker JEI Support
+[22:54:42] [Client thread/INFO] [FML]: Processing ObjectHolder annotations
+[22:54:42] [Client thread/INFO] [FML]: Found 1168 ObjectHolder annotations
+[22:54:42] [Client thread/INFO] [FML]: Identifying ItemStackHolder annotations
+[22:54:42] [Client thread/INFO] [FML]: Found 0 ItemStackHolder annotations
+[22:54:42] [Client thread/INFO] [FML]: Configured a dormant chunk cache size of 0
+[22:54:43] [Client thread/INFO] [AE2:C]: Pre Initialization ( started )
+[22:54:43] [Thread-3/INFO] [FML]: Using sync timing. 200 frames of Display.update took 128710409 nanos
+[22:54:43] [Forge Version Check/INFO] [forge.VersionCheck]: [forge] Starting version check at http://files.minecraftforge.net/maven/net/minecraftforge/forge/promotions_slim.json
+[22:54:43] [Client thread/INFO] [STDOUT]: [appeng.core.transformer.ItemStackPatch:patchCountGetSet:53]: Patched ItemStack Count getter!
+[22:54:43] [Client thread/INFO] [STDOUT]: [appeng.core.transformer.ItemStackPatch:patchCountGetSet:81]: Patched ItemStack Count setter!
+[22:54:43] [Client thread/INFO] [AE2:C]: Starting AE2 VersionChecker
+[22:54:43] [Client thread/INFO] [AE2:C]: Pre Initialization ( ended after 884ms )
+[22:54:43] [AE2 VersionChecker/INFO] [AE2:C]: Last check was just recently.
+[22:54:43] [AE2 VersionChecker/INFO] [AE2:C]: Stopping AE2 VersionChecker
+[22:54:44] [Client thread/INFO] [FML]: Applying holder lookups
+[22:54:44] [Client thread/INFO] [FML]: Holder lookups applied
+[22:54:44] [Client thread/INFO] [FML]: Applying holder lookups
+[22:54:44] [Client thread/INFO] [FML]: Holder lookups applied
+[22:54:44] [Client thread/INFO] [FML]: Applying holder lookups
+[22:54:44] [Client thread/INFO] [FML]: Holder lookups applied
+[22:54:44] [Client thread/INFO] [FML]: Applying holder lookups
+[22:54:44] [Client thread/INFO] [FML]: Holder lookups applied
+[22:54:44] [Client thread/INFO] [FML]: Injecting itemstacks
+[22:54:44] [Client thread/INFO] [FML]: Itemstack injection complete
+[22:54:44] [Sound Library Loader/INFO] [net.minecraft.client.audio.SoundManager]: Starting up SoundSystem...
+[22:54:45] [Thread-7/INFO] [net.minecraft.client.audio.SoundManager]: Initializing LWJGL OpenAL
+[22:54:45] [Thread-7/INFO] [net.minecraft.client.audio.SoundManager]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[22:54:45] [Thread-7/INFO] [net.minecraft.client.audio.SoundManager]: OpenAL initialized.
+[22:54:45] [Sound Library Loader/INFO] [net.minecraft.client.audio.SoundManager]: Sound engine started
+[22:54:45] [Client thread/INFO] [FML]: Max texture size: 16384
+[22:54:46] [Client thread/INFO] [net.minecraft.client.renderer.texture.TextureMap]: Created: 1024x512 textures-atlas
+[22:54:47] [Client thread/INFO] [FML]: Applying holder lookups
+[22:54:47] [Client thread/INFO] [FML]: Holder lookups applied
+[22:54:47] [Client thread/INFO] [AE2:C]: Initialization ( started )
+[22:54:47] [Client thread/INFO] [AE2:C]: Starting AE2 CSV Export
+[22:54:47] [AE2 CSV Export/INFO] [AE2:C]: Cache is enabled. Checking for new mod configurations.
+[22:54:47] [AE2 CSV Export/INFO] [AE2:C]: Same mod configuration was found. Not updating CSV content.
+[22:54:47] [Client thread/INFO] [AE2:C]: Initialization ( ended after 66ms )
+[22:54:47] [Client thread/INFO] [Had Enough Items]: Created: 256x128 textures-atlas
+[22:54:47] [Client thread/INFO] [FML]: Injecting itemstacks
+[22:54:47] [Client thread/INFO] [FML]: Itemstack injection complete
+[22:54:47] [Client thread/WARN] [FML]: No types have been added to Biome appliedenergistics2:storage_biome, types have been assigned on a best-effort guess: [PLAINS, COLD]
+[22:54:47] [Client thread/INFO] [AE2:C]: Post Initialization ( started )
+[22:54:47] [Client thread/INFO] [AE2:C]: Industrial Craft 2 - Integration Disabled
+[22:54:47] [Client thread/INFO] [AE2:C]: GregTech - Integration Disabled
+[22:54:47] [Client thread/INFO] [AE2:C]: Railcraft - Integration Disabled
+[22:54:47] [Client thread/INFO] [AE2:C]: Mine Factory Reloaded - Integration Disabled
+[22:54:47] [Client thread/INFO] [AE2:C]: Waila - Integration Disabled
+[22:54:47] [Client thread/INFO] [AE2:C]: Inventory Tweaks - Integration Disabled
+[22:54:47] [Client thread/INFO] [AE2:C]: Just Enough Items - Integration Enable
+[22:54:47] [Client thread/INFO] [AE2:C]: Mekanism - Integration Disabled
+[22:54:47] [Client thread/INFO] [AE2:C]: OpenComputers - Integration Disabled
+[22:54:47] [Client thread/INFO] [AE2:C]: TheOneProbe - Integration Disabled
+[22:54:47] [Client thread/INFO] [AE2:C]: Tesla - Integration Disabled
+[22:54:47] [Client thread/INFO] [AE2:C]: CraftTweaker - Integration Enable
+[22:54:47] [Client thread/INFO] [AE2:C]: Post Initialization ( ended after 171ms )
+[22:54:47] [Client thread/INFO] [Had Enough Items]: Starting Had Enough Items...
+[22:54:47] [Client thread/INFO] [Had Enough Items]: Registering recipe categories...
+[22:54:47] [Client thread/INFO] [Had Enough Items]: Registering recipe categories took 12.98 ms
+[22:54:47] [Client thread/INFO] [Had Enough Items]: Registering mod plugins...
+[22:54:47] [Client thread/INFO] [Had Enough Items]: Added recipe registry plugin: class appeng.integration.modules.jei.FacadeRegistryPlugin
+[22:54:47] [Client thread/INFO] [Had Enough Items]: Registering mod plugins took 92.46 ms
+[22:54:47] [Client thread/INFO] [Had Enough Items]: Building recipe registry...
+[22:54:47] [Client thread/INFO] [Had Enough Items]: Building recipe registry took 62.85 ms
+[22:54:47] [Client thread/INFO] [Had Enough Items]: Building ingredient filter and search trees...
+[22:54:47] [Client thread/INFO] [Had Enough Items]: Building [default] search tree...
+[22:54:47] [Client thread/INFO] [Had Enough Items]: Building [default] search tree took 22.91 ms
+[22:54:47] [Client thread/INFO] [Had Enough Items]: Building [tooltip] search tree...
+[22:54:47] [Client thread/INFO] [Had Enough Items]: Building [tooltip] search tree took 28.18 ms
+[22:54:47] [pool-3-thread-1/INFO] [Had Enough Items]: Asynchronously building [resource_id] search tree...
+[22:54:47] [pool-3-thread-1/INFO] [Had Enough Items]: Asynchronously building [resource_id] search tree took 1.506 ms
+[22:54:47] [pool-3-thread-1/INFO] [Had Enough Items]: Asynchronously building [color] search tree...
+[22:54:47] [Client thread/INFO] [Had Enough Items]: Building ingredient filter and search trees took 100.3 ms
+[22:54:47] [pool-3-thread-1/INFO] [Had Enough Items]: Asynchronously building [color] search tree took 517.6 μs
+[22:54:47] [pool-3-thread-1/INFO] [Had Enough Items]: Asynchronously building [oredict] search tree...
+[22:54:47] [pool-3-thread-1/INFO] [Had Enough Items]: Asynchronously building [oredict] search tree took 168.7 μs
+[22:54:47] [pool-3-thread-1/INFO] [Had Enough Items]: Asynchronously building [mod_name] search tree...
+[22:54:47] [pool-3-thread-1/INFO] [Had Enough Items]: Asynchronously building [mod_name] search tree took 4.749 ms
+[22:54:47] [pool-3-thread-1/INFO] [Had Enough Items]: Asynchronously building [creative_tab] search tree...
+[22:54:47] [pool-3-thread-1/INFO] [Had Enough Items]: Asynchronously building [creative_tab] search tree took 211.5 μs
+[22:54:47] [Client thread/INFO] [Had Enough Items]: Loaded 0 custom collapsible groups
+[22:54:47] [Client thread/INFO] [Had Enough Items]: Building runtime...
+[22:54:47] [Client thread/INFO] [Had Enough Items]: Building runtime took 68.18 ms
+[22:54:47] [Client thread/INFO] [Had Enough Items]: Building favorites...
+[22:54:47] [Client thread/INFO] [Had Enough Items]: Building favorites took 4.295 ms
+[22:54:47] [Client thread/INFO] [Had Enough Items]: Building bookmarks...
+[22:54:47] [Client thread/INFO] [Had Enough Items]: Building bookmarks took 1.121 ms
+[22:54:47] [Client thread/INFO] [Had Enough Items]: Starting Had Enough Items took 465.4 ms
+[22:54:48] [Client thread/INFO] [FML]: Forge Mod Loader has successfully loaded 11 mods
+[22:54:48] [Client thread/WARN] [net.minecraft.client.settings.GameSettings]: Skipping bad option: lastServer:
+[22:54:48] [Client thread/INFO] [com.mojang.text2speech.NarratorWindows]: Narrator library for x64 successfully loaded
+[22:54:50] [Realms Notification Availability checker #1/INFO] [com.mojang.realmsclient.client.RealmsClient]: Could not authorize you against Realms server: java.lang.RuntimeException: Failed to parse into SignedJWT: 0
+[22:55:25] [Forge Version Check/INFO] [forge.VersionCheck]: [forge] Found status: OUTDATED Target: 14.23.5.2859
+[22:55:25] [Forge Version Check/INFO] [forge.VersionCheck]: [crafttweaker] Starting version check at https://updates.blamejared.com/get?n=crafttweaker&gv=1.12.2
+[22:55:26] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer]: Starting integrated minecraft server version 1.12.2
+[22:55:26] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer]: Generating keypair
+[22:55:26] [Server thread/INFO] [FML]: Injecting existing registry data into this server instance
+[22:55:26] [Forge Version Check/INFO] [forge.VersionCheck]: [crafttweaker] Found status: BETA Target: null
+[22:55:26] [Server thread/INFO] [FML]: Applying holder lookups
+[22:55:26] [Server thread/INFO] [FML]: Holder lookups applied
+[22:55:26] [Server thread/INFO] [FML]: Loading dimension 0 (新的世界) (net.minecraft.server.integrated.IntegratedServer@726526e1)
+[22:55:26] [Server thread/INFO] [net.minecraft.advancements.AdvancementList]: Loaded 514 advancements
+[22:55:26] [Server thread/INFO] [FML]: Loading dimension -1 (新的世界) (net.minecraft.server.integrated.IntegratedServer@726526e1)
+[22:55:26] [Server thread/INFO] [FML]: Loading dimension 1 (新的世界) (net.minecraft.server.integrated.IntegratedServer@726526e1)
+[22:55:26] [Server thread/INFO] [FML]: Loading dimension 2 (新的世界) (net.minecraft.server.integrated.IntegratedServer@726526e1)
+[22:55:26] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Preparing start region for level 0
+[22:55:27] [Server thread/INFO] [FML]: Unloading dimension -1
+[22:55:27] [Server thread/INFO] [FML]: Unloading dimension 1
+[22:55:27] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer]: Changing view distance to 12, from 10
+[22:55:30] [Netty Local Client IO #0/INFO] [FML]: Server protocol version 2
+[22:55:30] [Netty Server IO #1/INFO] [FML]: Client protocol version 2
+[22:55:30] [Netty Server IO #1/INFO] [FML]: Client attempting to join with 11 mods : minecraft@1.12.2,crafttweaker@4.1.20,ctgui@1.0.0,FML@8.0.99.99,crafttweakerjei@2.0.3,open_file@1.0.0,forge@14.23.5.2847,mixinbooter@10.2,mcp@9.42,appliedenergistics2@v0.56.7,jei@4.31.2
+[22:55:30] [Netty Local Client IO #0/INFO] [FML]: [Netty Local Client IO #0] Client side modded connection established
+[22:55:30] [Netty Local Client IO #0/INFO] [Had Enough Items]: ElementSearch PrefixInfo{default} Storage Stats: GeneralizedSuffixTree:
+Node size stats: 
+IntSummaryStatistics{count=5620, sum=9670, min=0, average=1.720641, max=117}
+Node edge stats: 
+Edge counts: IntSummaryStatistics{count=5620, sum=5619, min=0, average=0.999822, max=665}
+Edge lengths: IntSummaryStatistics{count=5619, sum=11920, min=1, average=2.121374, max=9}
+[22:55:30] [Server thread/INFO] [FML]: [Server thread] Server side modded connection established
+[22:55:30] [Server thread/INFO] [net.minecraft.server.management.PlayerList]: Developer[local:E:d5424880] logged in with entity id 436 at (-18.36379750740559, 69.0, 290.14920452448916)
+[22:55:30] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Developer加入了游戏
+[22:55:30] [Netty Local Client IO #0/INFO] [Had Enough Items]: ElementSearch PrefixInfo{tooltip} Storage Stats: GeneralizedSuffixTree:
+Node size stats: 
+IntSummaryStatistics{count=1705, sum=5094, min=0, average=2.987683, max=139}
+Node edge stats: 
+Edge counts: IntSummaryStatistics{count=1705, sum=1704, min=0, average=0.999413, max=237}
+Edge lengths: IntSummaryStatistics{count=1704, sum=5883, min=1, average=3.452465, max=26}
+[22:55:30] [Netty Local Client IO #0/INFO] [Had Enough Items]: ElementSearch PrefixInfo{mod_name} Storage Stats: LimitedStringStorage: GeneralizedSuffixTree:
+Node size stats: 
+IntSummaryStatistics{count=70, sum=53, min=0, average=0.757143, max=1}
+Node edge stats: 
+Edge counts: IntSummaryStatistics{count=70, sum=69, min=0, average=0.985714, max=18}
+Edge lengths: IntSummaryStatistics{count=69, sum=519, min=1, average=7.521739, max=24}
+[22:55:31] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer]: Saving and pausing game...
+[22:55:31] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Saving chunks for level '新的世界'/overworld
+[22:55:31] [Client thread/INFO] [net.minecraft.advancements.AdvancementList]: Loaded 12 advancements
+[22:55:31] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Saving chunks for level '新的世界'/Storage Cell
+[22:55:41] [Client thread/INFO] [net.minecraft.advancements.AdvancementList]: Loaded 18 advancements
+[22:56:15] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer]: Saving and pausing game...
+[22:56:15] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Saving chunks for level '新的世界'/overworld
+[22:56:15] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Saving chunks for level '新的世界'/Storage Cell
+[22:56:15] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Stopping server
+[22:56:15] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Saving players
+[22:56:15] [Server thread/INFO] [net.minecraft.network.NetHandlerPlayServer]: Developer lost connection: 连接中止
+[22:56:15] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Developer退出了游戏
+[22:56:15] [Server thread/INFO] [net.minecraft.network.NetHandlerPlayServer]: Stopping singleplayer server as player logged out
+[22:56:15] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Saving worlds
+[22:56:15] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Saving chunks for level '新的世界'/overworld
+[22:56:15] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Saving chunks for level '新的世界'/Storage Cell
+[22:56:15] [Server thread/INFO] [FML]: Unloading dimension 0
+[22:56:15] [Server thread/INFO] [FML]: Unloading dimension 2
+[22:56:16] [Server thread/INFO] [FML]: Applying holder lookups
+[22:56:16] [Server thread/INFO] [FML]: Holder lookups applied
+[23:22:27] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer]: Starting integrated minecraft server version 1.12.2
+[23:22:27] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer]: Generating keypair
+[23:22:27] [Server thread/INFO] [FML]: Injecting existing registry data into this server instance
+[23:22:27] [Server thread/INFO] [FML]: Applying holder lookups
+[23:22:27] [Server thread/INFO] [FML]: Holder lookups applied
+[23:22:27] [Server thread/INFO] [FML]: Loading dimension 0 (新的世界) (net.minecraft.server.integrated.IntegratedServer@10661fe9)
+[23:22:28] [Server thread/INFO] [net.minecraft.advancements.AdvancementList]: Loaded 514 advancements
+[23:22:28] [Server thread/INFO] [FML]: Loading dimension -1 (新的世界) (net.minecraft.server.integrated.IntegratedServer@10661fe9)
+[23:22:28] [Server thread/INFO] [FML]: Loading dimension 1 (新的世界) (net.minecraft.server.integrated.IntegratedServer@10661fe9)
+[23:22:28] [Server thread/INFO] [FML]: Loading dimension 2 (新的世界) (net.minecraft.server.integrated.IntegratedServer@10661fe9)
+[23:22:28] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Preparing start region for level 0
+[23:22:28] [Server thread/INFO] [FML]: Unloading dimension -1
+[23:22:28] [Server thread/INFO] [FML]: Unloading dimension 1
+[23:22:28] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer]: Changing view distance to 12, from 10
+[23:22:28] [Netty Local Client IO #1/INFO] [FML]: Server protocol version 2
+[23:22:28] [Netty Server IO #3/INFO] [FML]: Client protocol version 2
+[23:22:28] [Netty Server IO #3/INFO] [FML]: Client attempting to join with 11 mods : minecraft@1.12.2,crafttweaker@4.1.20,ctgui@1.0.0,FML@8.0.99.99,crafttweakerjei@2.0.3,open_file@1.0.0,forge@14.23.5.2847,mixinbooter@10.2,mcp@9.42,appliedenergistics2@v0.56.7,jei@4.31.2
+[23:22:28] [Netty Local Client IO #1/INFO] [FML]: [Netty Local Client IO #1] Client side modded connection established
+[23:22:29] [Server thread/INFO] [FML]: [Server thread] Server side modded connection established
+[23:22:29] [Server thread/INFO] [net.minecraft.server.management.PlayerList]: Developer[local:E:d7a09040] logged in with entity id 1741 at (-1.0813194572259075, 67.16610926093821, 275.07611148476144)
+[23:22:29] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Developer加入了游戏
+[23:22:29] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer]: Saving and pausing game...
+[23:22:29] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Saving chunks for level '新的世界'/overworld
+[23:22:29] [Client thread/INFO] [net.minecraft.advancements.AdvancementList]: Loaded 18 advancements
+[23:22:30] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Saving chunks for level '新的世界'/Storage Cell
+[23:22:35] [Client thread/INFO] [net.minecraft.client.gui.GuiNewChat]: [CHAT] /gamemode, /gamerule, /give
+[23:22:38] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: [Developer: 您的游戏模式已被设置为创造模式 ]
+[23:22:38] [Client thread/INFO] [net.minecraft.client.gui.GuiNewChat]: [CHAT] 你的游戏模式已被更新为创造模式
+[23:22:41] [Client thread/INFO] [net.minecraft.advancements.AdvancementList]: Loaded 19 advancements
+[23:22:50] [Client thread/INFO] [net.minecraft.advancements.AdvancementList]: Loaded 24 advancements
+[23:23:32] [Client thread/WARN] [net.minecraft.client.network.NetHandlerPlayClient]: Received passengers for unknown entity
+[23:23:43] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer]: Saving and pausing game...
+[23:23:43] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Saving chunks for level '新的世界'/overworld
+[23:23:43] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Saving chunks for level '新的世界'/Storage Cell
+[23:24:50] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Developer取得了进度[怪物猎人]
+[23:24:50] [Client thread/INFO] [net.minecraft.client.gui.GuiNewChat]: [CHAT] Developer取得了进度[怪物猎人]
+[23:24:50] [Client thread/INFO] [net.minecraft.advancements.AdvancementList]: Loaded 34 advancements
+[23:24:51] [Client thread/INFO] [net.minecraft.advancements.AdvancementList]: Loaded 35 advancements
+[23:25:07] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer]: Saving and pausing game...
+[23:25:07] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Saving chunks for level '新的世界'/overworld
+[23:25:07] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Saving chunks for level '新的世界'/Storage Cell
+[23:25:31] [Client thread/INFO] [net.minecraft.client.Minecraft]: Stopping!
+[23:25:31] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Stopping server
+[23:25:31] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Saving players
+[23:25:31] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Saving worlds
+[23:25:31] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Saving chunks for level '新的世界'/overworld
+[23:25:31] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Saving chunks for level '新的世界'/Storage Cell
+[23:25:31] [Server thread/INFO] [FML]: Unloading dimension 0
+[23:25:31] [Server thread/INFO] [FML]: Unloading dimension 2
+[23:25:31] [Server thread/INFO] [FML]: Applying holder lookups
+[23:25:31] [Server thread/INFO] [FML]: Holder lookups applied
+[23:25:31] [Client thread/INFO] [net.minecraft.client.audio.SoundManager]: SoundSystem shutting down...
+[23:25:32] [Client thread/WARN] [net.minecraft.client.audio.SoundManager]: Author: Paul Lamb, www.paulscode.com
