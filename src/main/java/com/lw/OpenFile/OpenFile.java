@@ -8,7 +8,7 @@ import java.util.Collections;
 import java.util.List;
 
 @Mod(modid = Tags.MOD_ID, name = Tags.MOD_NAME, version = Tags.VERSION,
-     dependencies = "required-after:appliedenergistics2;after:mixinbooter")
+     dependencies = "required-after:appliedenergistics2;required-after:mantle;required-after:tconstruct;after:mixinbooter")
 public class OpenFile implements ILateMixinLoader {
 
     @Override
