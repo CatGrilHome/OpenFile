@@ -33,6 +33,7 @@ public final class OpenFileTinkerTools {
 
         TinkerRegistry.registerToolPart(soulgeHeart);
         TinkerRegistry.registerTool(soulge);
+        TinkerRegistry.addPatternForItem(soulgeHeart);
         TinkerRegistry.addCastForItem(soulgeHeart);
         registerSoulgeHeartCasting();
         TinkerRegistry.registerToolStationCrafting(soulge);

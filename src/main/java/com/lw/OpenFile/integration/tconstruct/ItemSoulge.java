@@ -1,6 +1,8 @@
 package com.lw.OpenFile.integration.tconstruct;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemStack;
@@ -10,10 +12,13 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+
+import java.util.Random;
 import slimeknights.tconstruct.library.materials.ExtraMaterialStats;
 import slimeknights.tconstruct.library.materials.HandleMaterialStats;
 import slimeknights.tconstruct.library.materials.HeadMaterialStats;
@@ -30,6 +35,9 @@ import java.util.List;
 
 public class ItemSoulge extends SwordCore {
 
+    private final Random rand = new Random();
+    private int pendingDamage = 0;
+
     private static final String TAG_TARGETED = "targeted";
     private static final String TAG_READY_TO_DIE = "ready_to_die";
     private static final int DEFAULT_EXERT_TIMES = 36;
@@ -37,7 +45,6 @@ public class ItemSoulge extends SwordCore {
     private static final int MAX_TARGETS = 10;
     private static final float DEFAULT_DETECTION_RANGE = 36.0F;
     private static final float DEFAULT_EXECUTE_THRESHOLD = 0.36F;
-    private static final float EXECUTE_DAMAGE = 200.0F;
 
     public ItemSoulge() {
         super(
@@ -76,6 +83,20 @@ public class ItemSoulge extends SwordCore {
     }
 
     @Override
+    public List<String> getInformation(ItemStack stack, boolean detailed) {
+        List<String> info = super.getInformation(stack, detailed);
+        if (detailed) {
+            SoulgeHeartStats stats = getSoulgeHeartStats(stack);
+            info.add("");
+            info.add(net.minecraft.util.text.TextFormatting.WHITE + "检测范围 " + net.minecraft.util.text.TextFormatting.GREEN + Math.round(stats.detectionRange));
+            info.add(net.minecraft.util.text.TextFormatting.WHITE + "施加印记层数 " + net.minecraft.util.text.TextFormatting.GREEN + stats.exertTimes);
+            info.add(net.minecraft.util.text.TextFormatting.WHITE + "攻击间隔 " + net.minecraft.util.text.TextFormatting.GREEN + stats.attackInterval);
+            info.add(net.minecraft.util.text.TextFormatting.WHITE + "斩杀线 " + net.minecraft.util.text.TextFormatting.GREEN + Math.round(stats.executeThreshold * 100) + "%");
+        }
+        return info;
+    }
+
+    @Override
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
         ItemStack stack = player.getHeldItem(hand);
         if (stack.getItemDamage() >= stack.getMaxDamage() - 1) {
@@ -86,6 +107,15 @@ public class ItemSoulge extends SwordCore {
     }
 
     @Override
+    public void onPlayerStoppedUsing(ItemStack stack, World world, EntityLivingBase entity, int timeLeft) {
+        if (pendingDamage > 0 && entity instanceof EntityPlayer) {
+            int dmg = pendingDamage;
+            pendingDamage = 0;
+            ToolHelper.damageTool(stack, dmg, (EntityPlayer) entity);
+        }
+    }
+
+    @Override
     public void onUsingTick(ItemStack stack, EntityLivingBase user, int count) {
         if (!user.world.isRemote) {
             SoulgeHeartStats stats = getSoulgeHeartStats(stack);
@@ -93,9 +123,25 @@ public class ItemSoulge extends SwordCore {
             if (target != null && target.isEntityAlive()) {
                 addTargetMark(target, stats);
             }
-            if (user.ticksExisted % stats.attackInterval == 0 && user instanceof EntityPlayer) {
-                attackMarkedTargets(stack, (EntityPlayer) user, stats);
-            }
+        }
+    }
+
+    private static final String TAG_PENDING_DAMAGE = "soulge_dmg";
+
+    @Override
+    public void onUpdate(ItemStack stack, World world, Entity entity, int itemSlot, boolean isSelected) {
+        super.onUpdate(stack, world, entity, itemSlot, isSelected);
+        if (!isSelected || world.isRemote || !(entity instanceof EntityPlayer)) {
+            return;
+        }
+        EntityPlayer player = (EntityPlayer) entity;
+
+        if (!player.isHandActive()) {
+            return;
+        }
+        SoulgeHeartStats stats = getSoulgeHeartStats(stack);
+        if (player.ticksExisted % stats.attackInterval == 0) {
+            attackMarkedTargets(stack, player, stats);
         }
     }
 
@@ -135,7 +181,7 @@ public class ItemSoulge extends SwordCore {
             if (attacked >= MAX_TARGETS) {
                 return;
             }
-            if (target == player) {
+            if (target == player || !(target instanceof IMob)) {
                 continue;
             }
             NBTTagCompound data = target.getEntityData();
@@ -143,27 +189,70 @@ public class ItemSoulge extends SwordCore {
             if (marks <= 0 || data.hasKey(TAG_READY_TO_DIE)) {
                 continue;
             }
-            if (dealDamage(stack, player, target, damage)) {
-                ToolHelper.damageTool(stack, 1, player);
-                data.setInteger(TAG_TARGETED, marks - 1);
-                if (target.getHealth() <= target.getMaxHealth() * stats.executeThreshold && target.isEntityAlive()) {
-                    executeTarget(player, target);
-                }
-                if (!target.isEntityAlive()) {
-                    data.removeTag(TAG_TARGETED);
-                }
-                attacked++;
+            float newHealth = target.getHealth() - damage;
+            if (newHealth <= 0) {
+                target.attackEntityFrom(DamageSource.causePlayerDamage(player), damage);
+            } else {
+                target.setHealth(newHealth);
+                target.hurtTime = 10;
+                target.hurtResistantTime = target.maxHurtResistantTime;
             }
+            drawParticleBeam(player, target);
+            for (int p = 0; p < 5; p++) {
+                target.world.spawnParticle(EnumParticleTypes.SPELL_MOB,
+                        target.posX + (rand.nextDouble() - 0.5D) * target.width,
+                        target.posY + target.height * rand.nextDouble(),
+                        target.posZ + (rand.nextDouble() - 0.5D) * target.width,
+                        0.2D, 0.6D, 1.0D, new int[0]);
+            }
+            pendingDamage++;
+            data.setInteger(TAG_TARGETED, marks - 1);
+            if (target.getHealth() <= target.getMaxHealth() * stats.executeThreshold && target.isEntityAlive()) {
+                executeTarget(target);
+            }
+            if (!target.isEntityAlive()) {
+                data.removeTag(TAG_TARGETED);
+            }
+            attacked++;
         }
     }
 
-    private static void executeTarget(EntityPlayer player, EntityLivingBase target) {
+    private void executeTarget(EntityLivingBase target) {
         NBTTagCompound data = target.getEntityData();
         if (data.hasKey(TAG_READY_TO_DIE)) {
             return;
         }
+        target.clearActivePotions();
         data.setInteger(TAG_READY_TO_DIE, 9);
-        target.attackEntityFrom(DamageSource.causePlayerDamage(player), EXECUTE_DAMAGE);
+        for (int p = 0; p < 15; p++) {
+            target.world.spawnParticle(EnumParticleTypes.SPELL_MOB,
+                    target.posX + (rand.nextDouble() - 0.5D) * target.width * 2,
+                    target.posY + target.height * rand.nextDouble(),
+                    target.posZ + (rand.nextDouble() - 0.5D) * target.width * 2,
+                    1.0D, 0.3D, 0.3D, new int[0]);
+        }
+    }
+
+    private void drawParticleBeam(EntityLivingBase from, EntityLivingBase to) {
+        double dx = to.posX - from.posX;
+        double dy = (to.posY + to.height * 0.5D) - (from.posY + from.height * 0.5D);
+        double dz = to.posZ - from.posZ;
+        double dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
+        if (dist == 0) {
+            return;
+        }
+        dx /= dist;
+        dy /= dist;
+        dz /= dist;
+
+        double traveled = 0;
+        while (traveled < dist) {
+            traveled += rand.nextDouble();
+            double x = from.posX + dx * traveled;
+            double y = from.posY + from.height * 0.5D + dy * traveled;
+            double z = from.posZ + dz * traveled;
+            from.world.spawnParticle(EnumParticleTypes.SPELL_MOB, x, y, z, 0.2D, 0.6D, 1.0D, new int[0]);
+        }
     }
 
     private static EntityLivingBase findPointedEntity(World world, EntityLivingBase user, float range) {
@@ -201,17 +290,9 @@ public class ItemSoulge extends SwordCore {
 
     public static boolean hasSoulgeHeartStats(String material) {
         switch (material) {
-            case "aetherium":
             case "obsidian":
-            case "heart_of_steel":
-            case "true_infinity":
-            case "violium":
             case "cobalt":
             case "manyullyn":
-            case "exotic_matter":
-            case "exo_alloy":
-            case "ultra_dense":
-            case "elysia":
                 return true;
             default:
                 return false;
@@ -220,27 +301,21 @@ public class ItemSoulge extends SwordCore {
 
     static SoulgeHeartStats getSoulgeHeartStats(String material) {
         switch (material) {
-            case "aetherium":
-                return new SoulgeHeartStats(80.0F, 60, 3, 0.36F);
             case "obsidian":
                 return new SoulgeHeartStats(20.0F, 8, 6, 0.16F);
-            case "heart_of_steel":
-                return new SoulgeHeartStats(35.0F, 60, 10, 0.0F);
-            case "true_infinity":
-                return new SoulgeHeartStats(100.0F, 100, 1, 0.9F);
-            case "violium":
-                return new SoulgeHeartStats(45.0F, 45, 4, 0.28F);
             case "cobalt":
-                return new SoulgeHeartStats(18.0F, 30, 10, 0.3F);
+                return new SoulgeHeartStats(18.0F, 30, 10, 0.2F);
             case "manyullyn":
                 return new SoulgeHeartStats(30.0F, 40, 5, 0.27F);
-            case "exotic_matter":
-                return new SoulgeHeartStats(60.0F, 60, 4, 0.45F);
-            case "exo_alloy":
-                return new SoulgeHeartStats(100.0F, 100, 1, 0.72F);
-            case "ultra_dense":
-                return new SoulgeHeartStats(70.0F, 100, 10, 0.38F);
-            case "elysia":
+            // 以下材料数值保留，后续启用时取消注释
+            // case "elysia":      return new SoulgeHeartStats(36.0F, 36, 4, 0.36F);
+            // case "aetherium":    return new SoulgeHeartStats(80.0F, 60, 3, 0.36F);
+            // case "heart_of_steel": return new SoulgeHeartStats(35.0F, 60, 10, 0.0F);
+            // case "true_infinity":  return new SoulgeHeartStats(100.0F, 100, 1, 0.9F);
+            // case "violium":     return new SoulgeHeartStats(45.0F, 45, 4, 0.28F);
+            // case "exotic_matter": return new SoulgeHeartStats(60.0F, 60, 4, 0.45F);
+            // case "exo_alloy":   return new SoulgeHeartStats(100.0F, 100, 1, 0.72F);
+            // case "ultra_dense": return new SoulgeHeartStats(70.0F, 100, 10, 0.38F);
             default:
                 return SoulgeHeartStats.DEFAULT;
         }

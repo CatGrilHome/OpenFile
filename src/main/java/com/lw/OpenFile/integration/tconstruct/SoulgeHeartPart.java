@@ -31,17 +31,6 @@ public class SoulgeHeartPart extends ToolPart {
         tooltip.add(TextFormatting.WHITE + "检测范围 " + TextFormatting.GREEN + "+" + Math.round(stats.detectionRange));
         tooltip.add(TextFormatting.WHITE + "施加印记层数 " + TextFormatting.GREEN + "+" + stats.exertTimes);
         tooltip.add(TextFormatting.WHITE + "攻击间隔 " + TextFormatting.GREEN + "+" + stats.attackInterval);
-        tooltip.add(TextFormatting.WHITE + "斩杀线 " + TextFormatting.GREEN + "+" + trimPercent(stats.executeThreshold));
-    }
-
-    private static String trimPercent(float value) {
-        int percent = Math.round(value * 100.0F);
-        if (percent == 0) {
-            return "0";
-        }
-        if (percent % 100 == 0) {
-            return Integer.toString(percent / 100);
-        }
-        return Float.toString(value);
+        tooltip.add(TextFormatting.WHITE + "斩杀线 " + TextFormatting.GREEN + Math.round(stats.executeThreshold * 100) + "%");
     }
 }
