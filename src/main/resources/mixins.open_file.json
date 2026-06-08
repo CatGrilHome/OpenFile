@@ -8,9 +8,10 @@
 	"mixins": [
 		"MixinContainerPatternTerm",
 		"MixinContainerInterfaceTerminal",
-		"MixinItemEncodedPattern",
-		"MixinGuiMEMonitorable"
+		"MixinItemEncodedPattern"
 	],
 	"server": [],
-	"client": []
+	"client": [
+		"MixinGuiMEMonitorable"
+	]
 }

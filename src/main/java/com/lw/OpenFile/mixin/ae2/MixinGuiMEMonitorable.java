@@ -1,5 +1,6 @@
 package com.lw.OpenFile.mixin.ae2;
 
+import appeng.client.gui.implementations.GuiMEMonitorable;
 import com.lw.OpenFile.integration.jei.OpenFileJeiPlugin;
 import mezz.jei.api.IJeiRuntime;
 import net.minecraft.client.gui.GuiTextField;
@@ -15,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
  * Allows pressing the F key while hovering over a JEI ingredient to
  * automatically set the AE2 terminal's search field to that item's name.
  */
-@Mixin(targets = "appeng.client.gui.implementations.GuiMEMonitorable", remap = false)
+@Mixin(value = GuiMEMonitorable.class, remap = false)
 public abstract class MixinGuiMEMonitorable {
 
     @Inject(method = "keyTyped", at = @At("HEAD"), cancellable = true, remap = false)

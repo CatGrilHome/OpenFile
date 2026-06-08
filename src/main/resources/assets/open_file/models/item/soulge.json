@@ -1,0 +1,10 @@
+{
+  "loader": "tconstruct:tool",
+  "textures": {
+    "layer0": "open_file:items/tool/soulge/handle",
+    "layer1": "open_file:items/tool/soulge/head1",
+    "layer2": "open_file:items/tool/soulge/heart",
+    "layer3": "open_file:items/tool/soulge/head3",
+    "layer4": "open_file:items/tool/soulge/head2"
+  }
+}

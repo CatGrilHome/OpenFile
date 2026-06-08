@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "open_file:items/parts/soulge_heart"
+  }
+}
